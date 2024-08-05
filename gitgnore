@@ -1,0 +1,22 @@
+# Diretórios de metadados do Jupyter
+.ipynb_checkpoints/
+
+# Diretórios de cache do Python
+__pycache__/
+*.py[cod]
+
+# Arquivos do sistema operacional
+.DS_Store
+
+# Diretórios de ambiente virtual
+env/
+venv/
+
+# Arquivos de pacotes do Python
+*.egg-info/
+
+# Arquivos de logs
+*.log
+
+# Dados brutos
+data/*.csv

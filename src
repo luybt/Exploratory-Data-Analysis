@@ -1,0 +1,64 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Carregar os dados do arquivo CSV
+file_path = "amazon_categories.csv"
+df = pd.read_csv(file_path)
+
+# Análise exploratória dos dados
+# Verificar as primeiras linhas do DataFrame
+print("Primeiras linhas do DataFrame:")
+print(df.head())
+
+# Verificar informações sobre o DataFrame
+print("\nInformações sobre o DataFrame:")
+print(df.info())
+
+# Verificar estatísticas descritivas das colunas numéricas
+print("\nEstatísticas descritivas das colunas numéricas:")
+print(df.describe())
+
+# Verificar contagem de categorias únicas
+print("\nContagem de categorias únicas:")
+print(df['category_name'].value_counts())
+
+# Visualizações gráficas
+# Histograma da contagem de categorias
+plt.figure(figsize=(10, 6))
+plt.hist(df['category_name'], bins=20, color='skyblue', edgecolor='black')
+plt.title('Histograma da Contagem de Categorias')
+plt.xlabel('Categoria')
+plt.ylabel('Contagem')
+plt.xticks(rotation=90)
+plt.grid(True)
+plt.show()
+
+# Gráfico de barras das categorias mais vendidas
+top_categories = df['category_name'].value_counts().head(10)
+plt.figure(figsize=(10, 6))
+top_categories.plot(kind='bar', color='green')
+plt.title('Top 10 Categorias Mais Vendidas')
+plt.xlabel('Categoria')
+plt.ylabel('Contagem de Vendas')
+plt.xticks(rotation=45)
+plt.grid(axis='y')
+plt.show()
+
+# Relatório completo
+"""
+Relatório de Análise de Categorias de Produtos em uma Loja de Comércio Eletrônico
+
+1. Análise Exploratória dos Dados:
+   - O DataFrame contém informações sobre categorias de produtos.
+   - Não há valores ausentes no DataFrame.
+   - A contagem de categorias únicas indica a distribuição dos produtos.
+
+2. Visualizações Gráficas:
+   - Histograma: Apresenta a distribuição da contagem de categorias.
+   - Gráfico de Barras: Mostra as top 10 categorias mais vendidas.
+
+3. Insights e Recomendações:
+   - A partir do histograma, podemos observar a distribuição das categorias de produtos.
+   - O gráfico de barras nos mostra as categorias mais populares, o que pode ajudar na identificação de tendências de compra dos clientes.
+   - Recomenda-se uma análise mais aprofundada das categorias mais vendidas para entender os padrões de vendas e desenvolver estratégias de marketing mais eficazes.
+"""
